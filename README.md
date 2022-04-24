@@ -3,35 +3,37 @@
 #### 介绍
 基于CUDA的GPU加速通用遗传算法实现，实验平台为Nvidia Jetson Nano
 
-#### 软件架构
-软件架构说明
+# 文件构成
 
+- error.cuh：CUDA API错误诊断使用的宏定义头文件，用于诊断CUDA API的返回错误，显示错误发生的具体文件和行数，便于调试。
+- GeneticAlgorithm.hpp：遗传算法通用类模板和函数模板的头文件，包含了所有实际应用场景的遗传算法的通用特性
+- GA1.cu ：实例1 求使目标函数最优值的参数值
+- GA2.cu ：实例2 学习感知机模型根据身高体重预测性别
 
-#### 安装教程
+# 环境
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 操作系统：Ubuntu18.04LTS
+- 软件工具：cuda-toolkits 10.2
 
-#### 使用说明
+# 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+以实例1为例
 
-#### 参与贡献
+## 编译
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+```sh
+$ nvcc -o GA -g -G GA1.cu
+```
 
+## 运行
 
-#### 特技
+```sh
+$ ./GA1
+```
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## 调试
+
+```sh
+$ cuda-gdb ./GA1
+$ run
+```
